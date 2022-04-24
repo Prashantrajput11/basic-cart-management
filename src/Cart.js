@@ -35,16 +35,20 @@ export default function App() {
     // if action has a type of add to cart, increase quantity by 1
     switch (action.type) {
       case 'ADD_TO_CART':
-        return { ...state, quantity: action.payload + 1 };
+        return { ...state, quantity: state.quantity + 1 };
     }
   }
 
   // Initialise state
   const [state, dispatch] = useReducer(cartReducer, { quantity: 4 });
 
-  // Handles dispatch actions
-  function handleDispatch() {
-    dispatch({ type: 'ADD_TO_CART', payload: state.quantity });
+  /********************************************************************
+   * Handles dispatch actions
+   * @param {Integer} quantity - quantity of items in cart
+   * @param {obj} action - Action object
+   *********************************************************************/
+  function addToCart() {
+    dispatch({ type: 'ADD_TO_CART' });
   }
 
   // Return
@@ -57,7 +61,7 @@ export default function App() {
         return (
           <div>
             {item.name} - {item.price}
-            <button onClick={handleDispatch}>add</button>
+            <button onClick={addToCart}>add</button>
           </div>
         );
       })}
