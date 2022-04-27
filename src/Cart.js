@@ -11,7 +11,7 @@ export default function App() {
     {
       id: 2,
       name: 'laal chhadi',
-      price: 500,
+      price: 200,
     },
     {
       id: 3,
